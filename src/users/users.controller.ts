@@ -8,8 +8,7 @@ export class UsersController {
 
   @Get()
   listUsers() {
-    console.log('ok');
-    return 'ok';
+    return this.userService.listAll();
   }
   @Post()
   createUser(@Body() body: CreateUserDto) {
@@ -18,6 +17,6 @@ export class UsersController {
 
   @Get('/:id')
   getUser(@Param('id') id: string) {
-    console.log(id);
+    return this.userService.findOne(parseInt(id));
   }
 }
